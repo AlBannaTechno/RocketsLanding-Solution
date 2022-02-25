@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketLanding", "RocketLanding\RocketLanding.csproj", "{B4127C6E-FB91-42BE-B22B-7515B0F5238A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F1F0081D-0FA9-4129-904B-6DF462F2BC62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketLanding.Tests", "tests\RocketLanding.Tests\RocketLanding.Tests.csproj", "{D3B5FAAA-37A3-4B2F-871D-E1F364FDD053}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4127C6E-FB91-42BE-B22B-7515B0F5238A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4127C6E-FB91-42BE-B22B-7515B0F5238A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4127C6E-FB91-42BE-B22B-7515B0F5238A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4127C6E-FB91-42BE-B22B-7515B0F5238A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B5FAAA-37A3-4B2F-871D-E1F364FDD053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B5FAAA-37A3-4B2F-871D-E1F364FDD053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B5FAAA-37A3-4B2F-871D-E1F364FDD053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B5FAAA-37A3-4B2F-871D-E1F364FDD053}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3B5FAAA-37A3-4B2F-871D-E1F364FDD053} = {F1F0081D-0FA9-4129-904B-6DF462F2BC62}
+	EndGlobalSection
+EndGlobal
