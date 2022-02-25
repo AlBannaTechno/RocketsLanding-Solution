@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using RocketLanding.Infrastructure;
 using RocketLanding.Infrastructure.Exceptions;
@@ -7,6 +8,7 @@ namespace RocketLanding.Tests;
 
 public class LandingDirectorTests
 {
+    
 
     [Theory]
     [InlineData(5, 10, 20, 40, 5 + 20 -1, 10 + 40 - 1)]
@@ -69,6 +71,23 @@ public class LandingDirectorTests
             director.SetArea(width, height);
         }).Should().Throw<InvalidAreaException>();
     }
+
+    [Fact]
+    public void ShouldGuardAgainstNullAreaOrPlatform()
+    {
+        var director = new LandingDirector();
+        
+        this.Invoking(_ => { director.IsPositionAvailableForLanding(15, 15); }).Should().Throw<NullReferenceException>();
+        
+        director.SetArea(100, 100);
+        
+        this.Invoking(_ => { director.IsPositionAvailableForLanding(15, 15); }).Should().Throw<NullReferenceException>();
+        
+        director.SetPlatform(5, 5, 10, 10);
+
+        this.Invoking(_ => { director.IsPositionAvailableForLanding(15, 15); }).Should().NotThrow<NullReferenceException>();
+
+    }
     
     [Fact]
     public void ShouldProtectAgainstInvalidAreaAndPositionsValues()
@@ -128,5 +147,19 @@ public class LandingDirectorTests
         director.SetArea(100, 100);
         director.SetPlatform(5, 5, 10, 10);
         director.IsPositionAvailableForLanding(x, y).Should().Be(status);
+    }
+
+    [Fact]
+    public void ShouldCheckAgainstOutOfAreaPosition()
+    {
+        var director = new LandingDirector();
+        director.SetArea(100, 100);
+        director.SetPlatform(5, 5, 10, 10);
+        
+        director.IsPositionAvailableForLanding(-1, 10).Should().Be(LandingAvailability.OutOfPlatform);
+        director.IsPositionAvailableForLanding(10, -10).Should().Be(LandingAvailability.OutOfPlatform);
+        director.IsPositionAvailableForLanding(100, 10).Should().Be(LandingAvailability.OutOfPlatform);
+        director.IsPositionAvailableForLanding(10, 100).Should().Be(LandingAvailability.OutOfPlatform);
+
     }
 }
