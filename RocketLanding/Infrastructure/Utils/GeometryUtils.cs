@@ -1,5 +1,4 @@
-﻿using RocketLanding.Infrastructure.Impl;
-using RocketLanding.Infrastructure.Interfaces;
+﻿using RocketLanding.Infrastructure.Interfaces;
 
 namespace RocketLanding.Infrastructure.Utils;
 
@@ -19,7 +18,7 @@ public static class GeometryUtils
             && positioned.Y >= positionedArea.Y;
     }
 
-    public static bool IsPositionedInSelfArea(Position resident, Position visitor, int horizontalMargin = 1, int verticalMargin = 1)
+    public static bool IsPositionedInSelfArea(IPositioned resident, IPositioned visitor, int horizontalMargin = 1, int verticalMargin = 1)
     {
         var x1 = resident.X - horizontalMargin;
         var y1 = resident.Y - verticalMargin;
